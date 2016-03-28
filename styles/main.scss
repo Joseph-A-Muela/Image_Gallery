@@ -1,0 +1,105 @@
+body {
+	background-color: #E0E1E2;
+}
+
+nav {
+
+    #collapse-header {
+        background-color: #4B6E99;
+
+        #toggle-icon {
+            margin: 0 auto;
+        }
+    }
+}
+
+.glyphicon-plus-sign {
+	margin: .1em 3em;
+
+	&:hover {
+        color: #bbb;
+    }
+}
+
+span {
+	font-size: 1.5em;
+}
+
+form{
+	background-color: white;
+	padding-top: 3em;
+	margin-top: 0;
+}
+
+.container {
+	width: 80%;
+	padding-bottom: 3em;
+}
+
+.urlImage {
+	width: 100%;
+	padding: .5em;
+	margin: 0 auto 1em auto;
+}
+
+.urlCaption {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.btnWrapper {
+	float: right;
+	margin-top: 1em;
+}
+
+.addBtn {
+	background-color: #17AA56;
+	font-size: .7em;
+	color: white;
+	border: none;
+	display:inline-block;
+	overflow: auto;
+	white-space: nowrap;
+	margin: 0 auto;
+	border-radius: 5%;
+}
+
+.cancelBtn {
+	background-color: #B6B6B6;
+	color: white;
+	border: none;
+	font-size: .7em;
+	display:inline-block;
+	overflow: auto;
+	white-space: nowrap;
+	margin: 0 auto;
+	height: 4em;
+	width: 8em;
+	vertical-align: top;
+	border-radius: 5%;
+}
+
+.glyphicon-picture {
+	color: white;
+	margin: .4em .4em .4em .5em;
+	font-size: 2em;
+}
+
+.imgContainer {
+	padding: 2em;
+	margin: 2em auto;
+	width: 50em;
+	height: 100%;
+	background-color: white;
+	display: none;
+}
+
+.photoReal {
+	box-sizing: border-box;
+	column-count: 2;
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	padding-left: .3em;
+}
+
+
