@@ -7,7 +7,7 @@ var urlCaption = $('urlCaption');
 var photoReal = $('.photoReal');
 var imgContainer = $('.imgContainer');
 var deleteAllBtn = $('.deleteAllBtn');
-var url = 'http://small-tiyfe.herokuapp.com/collections/joseph-images';
+var url = 'http://small-tiyfe.herokuapp.com/collections/jo-imgs';
 
 
 parentContainer.hide();
@@ -40,10 +40,13 @@ cancelBtn.click(function(e) {
 
 //////////////////////////////////////////////////////////////////
 
-    addBtn.click(function(e) {
+addBtn.click(function(e) {
     e.preventDefault();
     var newUrlImage = urlImage.val();
     var newUrlCaption = urlCaption.val();
+});
+
+//////////////////////////////////////////////////////////////////
 
     $.post(
         url,
@@ -57,7 +60,10 @@ cancelBtn.click(function(e) {
         },
         'json'
     )
-});
+
+
+
+
 
 
 
