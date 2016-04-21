@@ -7,10 +7,11 @@ var urlCaption = $('.urlCaption');
 var photoReal = $('.photoReal');
 var imgContainer = $('.imgContainer');
 var deleteAllBtn = $('.deleteAllBtn');
-var url = 'http://small-tiyfe.herokuapp.com/collections/jo-imgs';
+var url = 'http://small-tiyfe.herokuapp.com/collections/insta_clone_images';
 
-
+deleteAllBtn.hide();
 parentContainer.hide();
+
     icon.click(function(e) {
     e.preventDefault();
     parentContainer.slideDown('slow');
@@ -19,13 +20,14 @@ parentContainer.hide();
         url,
         function(pullData){
             pullData.forEach(function(pullData) {
-			var newPhotoReal = '<div class = "col-md-6">' + '<img src="' + pullData.url + '"><div>' + pullData.caption + '</div>'+'</div>';
+			var newPhotoReal = '<div >' + '<img src="' + pullData.url + '"><div>' + pullData.caption + '</div>'+'</div>';
 			photoReal.append(newPhotoReal);
             });
         }
     );
 
     imgContainer.show();
+    deleteAllBtn.show();
 
 });
 
@@ -62,7 +64,28 @@ addBtn.click(function(e) {
 //////////////////////////////////////////////////////////////////
 
 
-
+function onDeleteAll() {
+    e.preventDefault();
+    $.get(
+        url,
+        function (data) {
+            data.forEach((record) => {
+                var newUrl = urlImage + urlCaption + record._id;
+                $.ajax({
+                    url: newUrl,
+                    method: 'DELETE'
+                });
+                console.log(newUrl);
+            });
+        },
+        'json'
+    );
+    // urlImage = urlImage.val('');
+    // urlCaption = urlCaption.val('');
+    // photoReal.html('');
+    // imgContainer.hide();
+    $deleteAllBtn.click(onDeleteAll);
+});
 
 
 
