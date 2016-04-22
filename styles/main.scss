@@ -1,5 +1,5 @@
 body {
-	background-color: #E0E1E2;
+	background-color: #E0E0E0;
 }
 
 nav {
@@ -29,6 +29,10 @@ form{
 	background-color: white;
 	padding-top: 3em;
 	margin-top: 0;
+}
+
+.inputContainer {
+	margin-bottom: 2em;
 }
 
 .container {
@@ -63,7 +67,7 @@ form{
 	border: none;
 	white-space: nowrap;
 	margin: 0 auto;
-	height: 3.5em;
+	height: 3em;
 	width: 8em;
 	vertical-align: top;
 	font-size: .8em;
@@ -89,6 +93,7 @@ form{
 	margin: 0 auto;
 	border-radius: .5em;
 	outline: none;
+	margin-left: .5em;
 }
 
 .cancelBtn {
@@ -117,7 +122,7 @@ form{
 	position: relative;
 	padding-top: 2em;
 	padding-bottom: 4em;
-	width: 100%;
+	width: 60%;
 	height: 100%;
 	background-color: white;
 	display: none;
@@ -131,7 +136,17 @@ form{
     padding-top: 0.5em;
 	width: 28em;
 	height: 20em;
+	border: none;
 }
 
+img {
+	border: none;
+}
 
+.imageContainer {
+	border: none;
+}
 
+.srcAndCaption {
+	border: none;
+}

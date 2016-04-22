@@ -1,4 +1,4 @@
-var parentContainer = $('.parentContainer');
+var inputContainer = $('.inputContainer');
 var icon = $('.glyphicon-plus-sign');
 var addBtn = $('.addBtn');
 var cancelBtn = $('.cancelBtn');
@@ -7,28 +7,26 @@ var urlCaption = $('.urlCaption');
 var photoReal = $('.photoReal');
 var imgContainer = $('.imgContainer');
 var deleteAllBtn = $('.deleteAllBtn');
-var url = 'http://small-tiyfe.herokuapp.com/collections/insta_clone_images';
+var url = 'http://small-tiyfe.herokuapp.com/collections/insta_clone_images/';
 
 deleteAllBtn.hide();
-parentContainer.hide();
+inputContainer.hide();
 
-    icon.click(function(e) {
+    icon.click((e) => {
     e.preventDefault();
-    parentContainer.slideDown('slow');
+    inputContainer.slideDown('fast');
 
     $.get(
         url,
         function(pullData){
-            pullData.forEach(function(pullData) {
+            pullData.forEach((pullData) => {
 			var newPhotoReal = '<div >' + '<img src="' + pullData.url + '"><div>' + pullData.caption + '</div>'+'</div>';
 			photoReal.append(newPhotoReal);
             });
         }
     );
-
-    imgContainer.show();
-    deleteAllBtn.show();
-
+    urlImage = urlImage.val('');
+    urlCaption = urlCaption.val('');
 });
 
 //////////////////////////////////////////////////////////////////
@@ -37,13 +35,15 @@ cancelBtn.click(function(e) {
     e.preventDefault();
     urlImage = urlImage.val('');
     urlCaption = urlCaption.val('');
-    parentContainer.slideUp('slow');
+    inputContainer.slideUp('fast');
 });
 
 //////////////////////////////////////////////////////////////////
 
-addBtn.click(function(e) {
+addBtn.click((e) => {
     e.preventDefault();
+    imgContainer.show();
+    deleteAllBtn.show();
     var newUrlImage = urlImage.val();
     var newUrlCaption = urlCaption.val();
 
@@ -54,23 +54,36 @@ addBtn.click(function(e) {
 	    	caption: newUrlCaption
 	    },
 	    function(data) {
-	        photoReal.append('<img src="'+data.url+'">' + '<div>'+data.caption+'</div>');
+	        photoReal.append('<img class="srcAndCaption" src="'+data.url+'">' + '<div class="srcAndCaption">'+data.caption+'</div>');
 	        photoReal.show();
 	    },
 	    'json'
 	);
+
+    if(empty(urlImage.val && urlCaption.val)) {
+        return false;
+    }
+    if(false) {
+        photoReal.html('');
+    }
+    else {
+        return true;
+    }
+
+    urlImage = urlImage.val('');
+    urlCaption = urlCaption.val('');
 });
 
 //////////////////////////////////////////////////////////////////
 
 
-function onDeleteAll() {
+function onDeleteAll(e) {
     e.preventDefault();
     $.get(
         url,
         function (data) {
             data.forEach((record) => {
-                var newUrl = urlImage + urlCaption + record._id;
+                var newUrl = url + record._id;
                 $.ajax({
                     url: newUrl,
                     method: 'DELETE'
@@ -80,15 +93,16 @@ function onDeleteAll() {
         },
         'json'
     );
-    // urlImage = urlImage.val('');
-    // urlCaption = urlCaption.val('');
-    // photoReal.html('');
-    // imgContainer.hide();
-    $deleteAllBtn.click(onDeleteAll);
+    urlImage = urlImage.val('');
+    urlCaption = urlCaption.val('');
+};
+deleteAllBtn.click(onDeleteAll);
+
+deleteAllBtn.click(function(){
+    setTimeout(function () {
+    window.location.reload();
+    }, 500);
 });
-
-
-
 
 
 
